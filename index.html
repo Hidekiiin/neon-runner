@@ -1,7 +1,71 @@
-# プロジェクトディレクトリで以下のコマンドを実行
-git init
-git add .
-git commit -m "初回コミット：ネオンランナーゲーム"
-git branch -M main
-git remote add origin https://github.com/hidekiiin/neon-runner.git
-git push -u origin main
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ネオンランナー - 近未来風横スクロールゲーム</title>
+    <meta name="description" content="マリオブラザーズのような横スクロールゲームで、青い色やネオンのひかるオブジェクトを使った近未来風のゲーム">
+    <meta name="theme-color" content="#000033">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000033;
+            color: #00ffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        #game-container {
+            width: 800px;
+            height: 600px;
+            max-width: 100%;
+            margin: 0 auto;
+            border: 2px solid #0066ff;
+            box-shadow: 0 0 20px #00ffff;
+        }
+        h1 {
+            color: #00ffff;
+            text-shadow: 0 0 10px #0066ff;
+            text-align: center;
+        }
+        .instructions {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: rgba(0, 51, 102, 0.7);
+            border: 1px solid #0066ff;
+            border-radius: 5px;
+        }
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #0066ff, 0 0 10px #0066ff;
+            }
+            to {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="glow">ネオンランナー</h1>
+    <div id="game-container"></div>
+    <div class="instructions">
+        <h2>操作方法</h2>
+        <p>左右矢印キー: 移動</p>
+        <p>上矢印キー: ジャンプ</p>
+        <p>下矢印キー: しゃがむ</p>
+        <p>Shiftキー: ダッシュ</p>
+        <p>壁に接触中に上矢印キー: ウォールジャンプ</p>
+    </div>
+
+    <script src="bundle.js"></script>
+</body>
+</html>
